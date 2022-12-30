@@ -1,6 +1,6 @@
 package tdd;
 
-public class AirConditioner {
+ class AirConditioner {
     private static String controls;
 
 

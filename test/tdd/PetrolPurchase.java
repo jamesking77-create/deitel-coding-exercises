@@ -14,7 +14,8 @@ public class PetrolPurchase {
     private String type;
     private int quantity;
     private double price;
-    private  double discount;
+    private  double discountRate;
+
 
     public void setLocation(String ipaja) {
         this.location = ipaja;
@@ -47,12 +48,13 @@ public class PetrolPurchase {
         return price;
     }
 
-    public void setDiscount(double discount) {
-        this.discount = 0;
+    public void setDiscount(double discountRate) {
+        this.discountRate = price / 100;
     }
 
     public double getDiscount() {
-        if (discount == price/5) {
+        double discount = 0;
+        if (discount == discountRate ) {
         }
         return discount;
     }

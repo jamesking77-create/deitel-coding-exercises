@@ -2,21 +2,18 @@ package tdd;
 
 public class Exam {
     public int priceOf (int numberOfCopies) {
-        if (numberOfCopies <= 4);
-        numberOfCopies =  numberOfCopies * 2000;
+        if (numberOfCopies <= 4) numberOfCopies =  numberOfCopies * 2000;
         return numberOfCopies;
     }
 
     public int priceOf2(int numberOfCopies) {
-        if (numberOfCopies >= 5 && numberOfCopies <= 9 );
-        numberOfCopies = numberOfCopies * 1_800;
+        if (numberOfCopies >= 5 && numberOfCopies <= 9 ) numberOfCopies = numberOfCopies * 1_800;
         return numberOfCopies;
     }
 
     public int priceOf3(int numberOfCopies) {
-         if( numberOfCopies >= 10 && numberOfCopies <= 29 );
-        numberOfCopies = numberOfCopies * 1_600;
-        return numberOfCopies;
+         if( numberOfCopies >= 10 && numberOfCopies <= 29 )
+        numberOfCopies = numberOfCopies * 1_600;return numberOfCopies;
     }
 
     public int priceOf4(int numberOfCopies) {

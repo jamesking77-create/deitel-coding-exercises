@@ -38,7 +38,6 @@ public class Petrol {
     @Test
     public void petrolDiscount(){
         PetrolPurchase petrol = new PetrolPurchase();
-        petrol.setDiscount(200);
         double quantity = petrol.getDiscount();
         assertEquals(0, quantity);
 }}
