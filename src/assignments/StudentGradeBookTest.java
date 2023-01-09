@@ -15,7 +15,7 @@ public class StudentGradeBookTest {
                 System.out.printf("Enter score for student %d: %n", student + 1);
                 System.out.printf("Enter score for subject %d: ", subject + 1);
                 int userInput3 = scanner.nextInt();
-                while (userInput3 > 100){
+                while (userInput3 < 0 ||userInput3 > 100){
                     System.err.println("invalid score!!!");
                     System.out.println();
                     System.out.printf("Enter score for student %d: %n", student + 1);
@@ -30,6 +30,7 @@ public class StudentGradeBookTest {
             }
         }
         StudentGradeBook grades = new StudentGradeBook(gradeBook,"SEMICOLON YEAR 1 EXAM...");
+        System.out.println(grades.getCourseName());
         grades.StudentGradeProcess();
     }
-}
+ }

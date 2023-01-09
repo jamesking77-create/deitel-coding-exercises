@@ -63,5 +63,7 @@ public class CheckoutTest {
         double userPay = scanner.nextDouble();
         checkout.displayReceipt(userInput5, userInput, item, quantity, price, discount, VAT, userPay);
 
+        
+
     }
 }

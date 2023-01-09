@@ -7,7 +7,7 @@ import java.util.Scanner;
 public class MyersBriggsQuestionnaire {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        String [][] questionnaire = new String[20][2];
+        String[][] questionnaire = new String[20][2];
 
         questionnaire[0][0] = "A: Expend energy, enjoy groups";
         questionnaire[0][1] = "B: Conserve energy, enjoy one on one";
@@ -50,76 +50,98 @@ public class MyersBriggsQuestionnaire {
         questionnaire[19][0] = "A: Control, govern";
         questionnaire[19][1] = "B: Latitude, freedom";
 
-            int A = 0;
-            int B = 0;
-            int E_A = 0;
-            int I_B = 0;
-            int S_A = 0;
-            int N_B = 0;
-        int T_A = 0;
-        int F_B = 0;
-        int J_A = 0;
-        int P_B = 0;
+        int A = 0;
+        int B = 0;
+        int E = 0;
+        int I = 0;
+        int S = 0;
+        int N = 0;
+        int T = 0;
+        int F = 0;
+        int J = 0;
+        int P = 0;
+        String E_I = null;
+        String S_N = null;
+        String T_F = null;
+        String J_P = null;
+        System.out.print("What is your name: ");
+        String userName = scanner.nextLine();
+
 
         for (String[] strings : questionnaire) {
-            System.out.println(Arrays.toString(strings));
-            String userInput1 = scanner.nextLine();
+
+                System.out.println(Arrays.toString(strings));
+                String userInput1 = scanner.nextLine();
 
                 if (Objects.equals(userInput1, "A")) {
                     userInput1 = strings[0];
                     A++;
-                }else if (Objects.equals(userInput1, "B")) {
+                } else if (Objects.equals(userInput1, "B")) {
                     userInput1 = strings[1];
                     B++;
-                }else {  while (!userInput1.equals("A") && !userInput1.equals("B")){
+                } else {
+                while (!userInput1.equals("A") && !userInput1.equals("B")) {
                     System.out.println("Expected  A or B as Response\nI know this is an error, please try again ");
                     System.out.println(Arrays.toString(strings));
-                    userInput1 = scanner.nextLine();}
+                    userInput1 = scanner.nextLine();
                 }
-                if (Objects.equals(userInput1, questionnaire[0][0]) || Objects.equals(userInput1, questionnaire[4][0])
+            }
+            if (Objects.equals(userInput1, questionnaire[0][0]) || Objects.equals(userInput1, questionnaire[4][0])
                     || Objects.equals(userInput1, questionnaire[8][0]) || Objects.equals(userInput1, questionnaire[12][0])
                     || Objects.equals(userInput1, questionnaire[16][0])) {
-                E_A++;
-            }
-            if (Objects.equals(userInput1, questionnaire[0][1]) || Objects.equals(userInput1, questionnaire[4][1])
+                E++;
+            } else if (Objects.equals(userInput1, questionnaire[0][1]) || Objects.equals(userInput1, questionnaire[4][1])
                     || Objects.equals(userInput1, questionnaire[8][1]) || Objects.equals(userInput1, questionnaire[12][1])
                     || Objects.equals(userInput1, questionnaire[16][1])) {
-                I_B++;
+                I++;
+                E_I = Arrays.toString(strings);
             }
+
+
             if (Objects.equals(userInput1, questionnaire[1][0]) || Objects.equals(userInput1, questionnaire[5][0])
                     || Objects.equals(userInput1, questionnaire[9][0]) || Objects.equals(userInput1, questionnaire[13][0])
                     || Objects.equals(userInput1, questionnaire[17][0])) {
-                S_A++;
-            }
-            if (Objects.equals(userInput1, questionnaire[1][1]) || Objects.equals(userInput1, questionnaire[5][1])
+                S++;
+            } else if (Objects.equals(userInput1, questionnaire[1][1]) || Objects.equals(userInput1, questionnaire[5][1])
                     || Objects.equals(userInput1, questionnaire[9][1]) || Objects.equals(userInput1, questionnaire[13][1])
                     || Objects.equals(userInput1, questionnaire[17][1])) {
-                N_B++;
+                N++;
             }
+            S_N = userInput1;
+
             if (Objects.equals(userInput1, questionnaire[2][0]) || Objects.equals(userInput1, questionnaire[6][0])
                     || Objects.equals(userInput1, questionnaire[10][0]) || Objects.equals(userInput1, questionnaire[14][0])
                     || Objects.equals(userInput1, questionnaire[18][0])) {
-                S_A++;
-            }
-            if (Objects.equals(userInput1, questionnaire[2][1]) || Objects.equals(userInput1, questionnaire[6][1])
+                T++;
+            } else if (Objects.equals(userInput1, questionnaire[2][1]) || Objects.equals(userInput1, questionnaire[6][1])
                     || Objects.equals(userInput1, questionnaire[10][1]) || Objects.equals(userInput1, questionnaire[14][1])
                     || Objects.equals(userInput1, questionnaire[18][1])) {
-                N_B++;
+                F++;
             }
+            T_F = userInput1;
+
             if (Objects.equals(userInput1, questionnaire[3][0]) || Objects.equals(userInput1, questionnaire[7][0])
                     || Objects.equals(userInput1, questionnaire[11][0]) || Objects.equals(userInput1, questionnaire[15][0])
                     || Objects.equals(userInput1, questionnaire[19][0])) {
-                S_A++;
-            }
-            if (Objects.equals(userInput1, questionnaire[3][1]) || Objects.equals(userInput1, questionnaire[7][1])
+                J++;
+            } else if (Objects.equals(userInput1, questionnaire[3][1]) || Objects.equals(userInput1, questionnaire[7][1])
                     || Objects.equals(userInput1, questionnaire[11][1]) || Objects.equals(userInput1, questionnaire[15][1])
                     || Objects.equals(userInput1, questionnaire[19][1])) {
-                N_B++;
+                P++;
             }
-
-
+            J_P = userInput1;
         }
+
+
+        System.out.printf("Hello %s you selected: %n", userName);
+        System.out.println(E_I);
+        System.out.printf("Number of A selected: %d%n", E);
+        System.out.printf("Number of B selected: %d%n", I);
+
+
+
 
     }
 
-}
+    }
+
