@@ -2,9 +2,10 @@ package assignments;
 
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.concurrent.TimeUnit;
 
 public class CheckoutTest {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         double VAT = 17.50;
 
         Scanner scanner  = new Scanner(System.in);
@@ -54,6 +55,13 @@ public class CheckoutTest {
         String userInput5 = scanner.next();
         System.out.println("how much discount will the customer get: ");
         double discount = scanner.nextDouble();
+
+        System.out.print("Preparing the pay slip");
+        for (int count = 0; count < 3 ; count++) {
+            System.out.print(".");
+            TimeUnit.SECONDS.sleep(1);
+        }
+
         System.out.println();
         System.out.println(  );
         Checkout checkout = new Checkout("SEMICOLON VENTURES");
@@ -61,6 +69,12 @@ public class CheckoutTest {
         System.out.println();
         System.out.println(" how much did the customer give to you? ");
         double userPay = scanner.nextDouble();
+        System.out.print("Preparing Your Receipt");
+        for (int count = 0; count < 3 ; count++) {
+            System.out.print(".");
+            TimeUnit.SECONDS.sleep(1);
+        }
+        System.out.println();
         checkout.displayReceipt(userInput5, userInput, item, quantity, price, discount, VAT, userPay);
 
         

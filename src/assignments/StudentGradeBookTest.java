@@ -1,9 +1,10 @@
 package assignments;
 
 import java.util.Scanner;
+import java.util.concurrent.TimeUnit;
 
 public class StudentGradeBookTest {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         Scanner scanner = new Scanner(System.in);
         System.out.print("How many students do you have: ");
         int userInput = scanner.nextInt();
@@ -23,12 +24,25 @@ public class StudentGradeBookTest {
                     userInput3 = scanner.nextInt();
 
                 }
-                System.out.println("saved successfully...");
+//                System.out.println();
+//                System.out.print("Storing");
+//                for (int count = 0; count < 2; count++) {
+//                    TimeUnit.SECONDS.sleep(1);
+//                    System.out.print(".");
+//                }
+//                System.out.println();
+//                System.out.println("Saved successfully ");
                 System.out.println();
                 gradeBook[student][subject] = userInput3;
 
             }
         }
+//        System.out.print("PREPARING GRADE BOOK");
+//        for (int count = 0; count < 2; count++) {
+//            TimeUnit.SECONDS.sleep(1);
+//            System.out.print(">>");
+//        }
+        System.out.println();
         StudentGradeBook grades = new StudentGradeBook(gradeBook,"SEMICOLON YEAR 1 EXAM...");
         System.out.println(grades.getCourseName());
         grades.StudentGradeProcess();

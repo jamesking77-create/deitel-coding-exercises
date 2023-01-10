@@ -11,7 +11,7 @@ public class DiceRoll {
         int frequency5 = 0;
         int frequency6 = 0;
         SecureRandom random_numbers = new SecureRandom();
-        int rand = 1 + 3 * random_numbers.nextInt(6);
+        int rand = random_numbers.nextInt(6);
         System.out.println(rand);
         for (int rolls = 0; rolls < 12000 ; rolls++) {
             int randomRolls = 1 + random_numbers.nextInt(6);
