@@ -3,9 +3,10 @@ package deitelChapters.chapter8.ticTacToe;
 import deitelChapters.chapter7.Player;
 
 import java.util.Arrays;
+import java.util.Objects;
 import java.util.Scanner;
 
-import static deitelChapters.chapter8.ticTacToe.TicTacCharacters.EMPTY;
+import static deitelChapters.chapter8.ticTacToe.TicTacCharacters.*;
 
 public class TicTacToeGame {
     private static final TicTacToePlayer [] players = new TicTacToePlayer[2];
@@ -81,12 +82,16 @@ int  gameIntro1 = scanner.nextInt();
             int playerPosition = scanner.nextInt();
             if (playerPosition > 9) {
                 System.err.println("number out of bound...");
-                promptPlayerMove();
+                promptPlayerMove(); break;
             } else {
                 setPlayerPosition(playerPosition);
+
+            }
+            if (i == 8){
+                System.out.println("IT'S A TIE...");
+                System.exit(0);
             }
         }
-
     }
 
     public static void setPlayerPosition(int move) {
@@ -98,9 +103,6 @@ int  gameIntro1 = scanner.nextInt();
         setBoard();
         displayBoard();
         TicTacToePlayer.adjustCurrentPlayer();
-        if (row == 0){
-            System.out.printf("%s you win ", players[TicTacToePlayer.getCurrentPlayer()].getName());
-        }
 
     }
 
@@ -111,17 +113,118 @@ int  gameIntro1 = scanner.nextInt();
     }
     public static void displayBoard(){
         for (String[] row: gameBoard) {
+
             System.out.println("            "+Arrays.toString(row));
+        }setWinningPositions(gameBoard);
+            System.out.println();
+    }
+
+    public static void setWinningPositions(String[][] moves) {
+
+            if (moves[0][0].equals(X.getSymbol()) &&
+                    moves[0][1].equals( X.getSymbol()) &&
+                    (moves[0][2].equals( X.getSymbol()))){
+                System.out.printf("%n%13s you win", players[TicTacToePlayer.getCurrentPlayer()].getName());
+                System.exit(0);
+            }
+            else if (moves[0][0].equals(O.getSymbol()) &&
+                    moves[0][1].equals( O.getSymbol()) &&
+                    (moves[0][2].equals( O.getSymbol()))){
+            System.out.printf("%n%13s you win!!!", players[TicTacToePlayer.getCurrentPlayer()].getName());
+            System.exit(0);
+        }
+
+            else if (moves[1][0].equals(X.getSymbol()) &&
+                moves[1][1].equals( X.getSymbol()) &&
+                (moves[1][2].equals( X.getSymbol()))){
+            System.out.printf("%n%13s you win", players[TicTacToePlayer.getCurrentPlayer()].getName());
+            System.exit(0);
+        }
+        else if (moves[1][0].equals(O.getSymbol()) &&
+                moves[1][1].equals( O.getSymbol()) &&
+                (moves[1][2].equals( O.getSymbol()))){
+            System.out.printf("%n%13s you win!!!", players[TicTacToePlayer.getCurrentPlayer()].getName());
+            System.exit(0);
+        }
+
+
+        else if (moves[2][0].equals(X.getSymbol()) &&
+                moves[2][1].equals( X.getSymbol()) &&
+                (moves[2][2].equals( X.getSymbol()))){
+            System.out.printf("%n%13s you win", players[TicTacToePlayer.getCurrentPlayer()].getName());
+            System.exit(0);
+        }
+        else if (moves[2][0].equals(O.getSymbol()) &&
+                moves[2][1].equals( O.getSymbol()) &&
+                (moves[2][2].equals( O.getSymbol()))){
+            System.out.printf("%n%13s you win!!!", players[TicTacToePlayer.getCurrentPlayer()].getName());
+            System.exit(0);
+        }
+
+
+            else if (moves[0][0].equals(O.getSymbol()) &&
+                    moves[1][0].equals( O.getSymbol()) &&
+                    (moves[2][0].equals( O.getSymbol()))){
+                System.out.printf("%n%13s you win!!!", players[TicTacToePlayer.getCurrentPlayer()].getName());
+                System.exit(0);
+            }
+            else if (moves[0][1].equals(O.getSymbol()) &&
+                    moves[1][1].equals( O.getSymbol()) &&
+                    (moves[2][1].equals( O.getSymbol()))){
+                System.out.printf("%n%13s you win!!!", players[TicTacToePlayer.getCurrentPlayer()].getName());
+                System.exit(0);
+            }
+            else if (moves[0][2].equals(O.getSymbol()) &&
+                    moves[1][2].equals( O.getSymbol()) &&
+                    (moves[2][2].equals( O.getSymbol()))){
+                System.out.printf("%n%13s you win!!!", players[TicTacToePlayer.getCurrentPlayer()].getName());
+                System.exit(0);
+            }
+            else if (moves[0][0].equals(X.getSymbol()) &&
+                    moves[1][0].equals( X.getSymbol()) &&
+                    (moves[2][0].equals( X.getSymbol()))){
+                System.out.printf("%n%13s you win!!!", players[TicTacToePlayer.getCurrentPlayer()].getName());
+                System.exit(0);
+            }
+            else if (moves[0][1].equals(X.getSymbol()) &&
+                    moves[1][1].equals( X.getSymbol()) &&
+                    (moves[2][1].equals( X.getSymbol()))){
+                System.out.printf("%n%13s you win!!!", players[TicTacToePlayer.getCurrentPlayer()].getName());
+                System.exit(0);
+            }
+            else if (moves[0][2].equals(X.getSymbol()) &&
+                    moves[1][2].equals( X.getSymbol()) &&
+                    (moves[2][2].equals( X.getSymbol()))){
+                System.out.printf("%n%13s you win!!!", players[TicTacToePlayer.getCurrentPlayer()].getName());
+                System.exit(0);
+            }
+
+            else if (moves[0][2].equals(X.getSymbol()) &&
+                    moves[1][1].equals( X.getSymbol()) &&
+                    (moves[2][0].equals( X.getSymbol()))){
+                System.out.printf("%n%13s you win!!!", players[TicTacToePlayer.getCurrentPlayer()].getName());
+                System.exit(0);
+            }
+            else if (moves[0][0].equals(X.getSymbol()) &&
+                    moves[1][1].equals( X.getSymbol()) &&
+                    (moves[2][2].equals( X.getSymbol()))){
+                System.out.printf("%n%13s you win!!!", players[TicTacToePlayer.getCurrentPlayer()].getName());
+                System.exit(0);
+            }
+
+            else if (moves[0][2].equals(O.getSymbol()) &&
+                    moves[1][1].equals( O.getSymbol()) &&
+                    (moves[2][0].equals( O.getSymbol()))){
+                System.out.printf("%n%13s you win!!!", players[TicTacToePlayer.getCurrentPlayer()].getName());
+                System.exit(0);
+            }
+            else if (moves[0][0].equals(O.getSymbol()) &&
+                    moves[1][1].equals( O.getSymbol()) &&
+                    (moves[2][2].equals( O.getSymbol()))){
+                System.out.printf("%n%13s you win!!!", players[TicTacToePlayer.getCurrentPlayer()].getName());
+                System.exit(0);
+            }
         }
     }
 
-    public static void setWinningPositions(int moves){
-        for (int i = 0; i <gameBoard.length ; i++) {
 
-
-        }
-
-    }
-
-
-}

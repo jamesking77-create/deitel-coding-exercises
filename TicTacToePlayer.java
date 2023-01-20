@@ -23,6 +23,7 @@ public class TicTacToePlayer {
     }
 
     public TicTacToePlayer(String name) {
+
         this.name = name;
         switch (currentPlayer){
             case 0 -> {
