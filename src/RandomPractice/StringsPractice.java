@@ -16,16 +16,21 @@ public class StringsPractice {
 
 
 
-        int[] numbers = new int[4];
-        Scanner scanner = new Scanner(System.in);
-        System.out.print("Enter four different number: ");
-        for (int i = 0; i < numbers.length ; i++) {
-            int userInput = scanner.nextInt();
-            numbers[i] = userInput;
-        }
-        System.out.println(Arrays.toString(numbers).charAt(10));
+//        int[] numbers = new int[4];
+//        Scanner scanner = new Scanner(System.in);
+//        System.out.print("Enter four different number: ");
+//        for (int i = 0; i < numbers.length ; i++) {
+//            int userInput = scanner.nextInt();
+//            numbers[i] = userInput;
+//        }
+//        System.out.println(Arrays.toString(numbers).charAt(10));
 
 // CREATING MULTIPLE OBJECT IN ONE LINE....
-        Account james, king, max = new Account(); new Account(); new Account();
+//        Account james, king, max = new Account(); new Account(); new Account();
+        String name = "jame";
+        System.out.append(name).append(" king");
+        int number = 12;
+
+
     }
 }

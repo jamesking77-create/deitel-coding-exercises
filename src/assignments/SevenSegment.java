@@ -10,6 +10,7 @@ public class SevenSegment {
         System.out.print("Enter any number from 1 - 9: ");
         int userInput = scanner.nextInt();
         switch (userInput){
+            case 0 -> takeNumbers("11111011");
             case 1 -> takeNumbers("00001011");
             case 2 -> takeNumbers("11011101");
             case 3 -> takeNumbers("11110101");
@@ -26,38 +27,38 @@ public class SevenSegment {
 
 
     public static void showA(){
-        seven_segment[0][0] = 1;
+//        seven_segment[0][0] = 1;
         seven_segment[0][1] = 1;
         seven_segment[0][2] = 1;
-        seven_segment[0][3] = 1;
+//        seven_segment[0][3] = 1;
     }
 
     public static void showB(){
-        seven_segment[0][3] = 1;
+//        seven_segment[0][3] = 1;
         seven_segment[1][3] = 1;
-        seven_segment[2][3] = 1;
+//        seven_segment[2][3] = 1;
 
     }
 
     public static void showC(){
-        seven_segment[2][3] = 1;
+//        seven_segment[2][3] = 1;
         seven_segment[3][3] = 1;
-        seven_segment[4][3] = 1;
+//        seven_segment[4][3] = 1;
 
     }
 
     public static void showD(){
-        seven_segment[4][0] = 1;
+//        seven_segment[4][0] = 1;
         seven_segment[4][1] = 1;
         seven_segment[4][2] = 1;
-        seven_segment[4][3] = 1;
+//        seven_segment[4][3] = 1;
 
     }
 
     public static void showE(){
-        seven_segment[4][0] = 1;
+//        seven_segment[4][0] = 1;
         seven_segment[3][0] = 1;
-        seven_segment[2][0] = 1;
+//        seven_segment[2][0] = 1;
 
     }
 
@@ -70,9 +71,9 @@ public class SevenSegment {
     }
 
     public static void showG(){
-        seven_segment[2][0] = 1;
+//        seven_segment[2][0] = 1;
         seven_segment[1][0] = 1;
-        seven_segment[0][0] = 1;
+//        seven_segment[0][0] = 1;
 
     }
 

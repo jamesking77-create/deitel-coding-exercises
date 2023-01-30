@@ -10,6 +10,33 @@ public class Time {
         this.minutes = minutes;
         this.seconds = seconds;
     }
+    public void setHour(int hour) {
+        validateHour(hour);
+        this.hour = hour;
+    }
+
+    public void setMinutes(int minutes) {
+        validateMinutes(minutes);
+        this.minutes = minutes;
+    }
+
+    public void setSeconds(int seconds) {
+        validateSeconds(seconds);
+        this.seconds = seconds;
+    }
+
+    public int getHour() {
+        return hour;
+    }
+
+    public int getMinutes() {
+        return minutes;
+    }
+
+    public int getSeconds() {
+        return seconds;
+    }
+
     public static void validateHour(int hour){
         boolean hourIsValid = hour < 0 || hour > 23;
         if (hourIsValid) throw new IllegalArgumentException("hour is valid");

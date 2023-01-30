@@ -3,11 +3,10 @@ package assignments;
 public class CardValidation {
     public void checkCC(String cardNumber)  {
         String cardDigit = cardNumber.replaceAll(" ", "");
-
         int sum = 0;
         for (int i = 0; i < cardNumber.length(); i++) {
             int cardNumberDigits = Integer.parseInt(Character.toString(cardDigit.charAt(i)));
-
+//            System.out.println(cardDigit);
             if ((cardDigit.length() - i) % 2 == 0) {
                 cardNumberDigits = cardNumberDigits * 2;
 
@@ -16,6 +15,7 @@ public class CardValidation {
                 }
             }
             sum += cardNumberDigits;
+
         }
             if (cardNumber.charAt(0) == '4'){
                String cardNumberType = "Visa card";
