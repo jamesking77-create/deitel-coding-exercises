@@ -23,7 +23,6 @@ public class TicTacToePlayer {
     }
 
     public TicTacToePlayer(String name) {
-
         this.name = name;
         switch (currentPlayer){
             case 0 -> {
@@ -55,7 +54,7 @@ public class TicTacToePlayer {
         return columnPosition;
     }
 
-    public static int getCurrentPlayer(){
+    public static int  getCurrentPlayer(){
         return currentPlayer;
     }
 
