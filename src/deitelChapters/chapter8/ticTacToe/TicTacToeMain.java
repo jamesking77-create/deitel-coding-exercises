@@ -10,7 +10,6 @@ public class TicTacToeMain {
     private static final Scanner scanner = new Scanner(System.in);
 //    private static final TicTacToePlayer [] players = new TicTacToePlayer[2];
 
-
     public static void main(String[] args) throws InterruptedException {
         startTicTacToe();
     }
@@ -56,13 +55,14 @@ public class TicTacToeMain {
                        | 1: Skip to Game      |
                        +----------------------+
                 """);
-        int gameIntro = scanner.nextInt();
-        if (gameIntro != 1 && gameIntro != 0){
-            System.out.println("wrong input...");
+        String  gameIntro = scanner.next();
+        if (!Objects.equals(gameIntro, "1") && !Objects.equals(gameIntro, "0")){
+//            throw new InputMismatchException("wrong input");
             promptGameInstructions();
         }
 
-        if (gameIntro == 0){
+
+        if (Objects.equals(gameIntro, "0")){
             System.out.println("""
                      You are to select any position from
                      the table below to place your value.
@@ -76,22 +76,23 @@ public class TicTacToeMain {
                               |  1: Back       |
                               +----------------+
                     """);
-            int  gameIntro1 = scanner.nextInt();
+            String  gameIntro1 = scanner.next();
 
-            if (gameIntro1 != 1 && gameIntro1 != 0){
-                System.out.println("wrong input...");
+            if (!Objects.equals(gameIntro1, "1") && !Objects.equals(gameIntro1, "0")){
+//                throw new InputMismatchException("");
                 promptGameInstructions();
             }
 
-            if (gameIntro1 == 1){
+
+            if (gameIntro1.equals("1")){
                 promptGameInstructions();
             }
-            if (gameIntro1 == 0){
+            if (gameIntro1.equals("0")){
                 playTicTacToe();
             }
 
 
-        }if (gameIntro == 1){
+        }if (gameIntro.equals("1")){
             playTicTacToe();
         }
     }
@@ -125,12 +126,26 @@ public class TicTacToeMain {
                     | %s, pick a position to place a symbol on the board
                     +----------------------------------------------------------+
                      """, playerName);
-        int playerPosition = scanner.nextInt();
+        String playerPositions = scanner.next();
+
+//        String [] alphabet = {"a","b","c","d","e","f","g","m","h","i","j","k","l","m","n","o","p","q","r","s","t",
+//                "u","v","w","x","y","z","A","B","C","D","E","F","G","H","I","J","K","L","M","N","O",
+//                "P","Q","R","S","T","U","V","W","X","Y","Z"};
+//        for (String letter: alphabet) {
+//            if (playerPositions.equals(letter)){
+//                throw new IllegalArgumentException("wrong input...");
+//            }
+//            TicTacToeGame.setPlayerPosition(Integer.parseInt(playerPositions));
+//        }
+        int playerPosition = Integer.parseInt(playerPositions);
+
         if (playerPosition < 1 || playerPosition > 9) {
-            throw new IllegalArgumentException("number out of bound...");
+            System.out.println("index out of bound...");
+            promptPlayerMove();
         } else {
             TicTacToeGame.setPlayerPosition(playerPosition);
         }
+
     }
 
 
@@ -159,13 +174,13 @@ public class TicTacToeMain {
                        | 1: Skip to Game      |
                        +----------------------+
                 """);
-        int gameIntro = scanner.nextInt();
-        if (gameIntro != 1 && gameIntro != 0){
+        String  gameIntro = scanner.next();
+        if (!Objects.equals(gameIntro, "1") && !Objects.equals(gameIntro, "0")){
             System.out.println("wrong input...");
             promptSinglePlayerGameInstructions();
         }
 
-        if (gameIntro == 0){
+        if (Objects.equals(gameIntro, "0")){
             System.out.println("""
                      You are to select any position from
                      the table below to place your value.
@@ -179,19 +194,20 @@ public class TicTacToeMain {
                               |  1: Back       |
                               +----------------+
                     """);
-            int  gameIntro1 = scanner.nextInt();
+            String gameIntro1 = scanner.next();
 
-            if (gameIntro1 != 1 && gameIntro1 != 0){
-                System.out.println("wrong input...");
+            if (!Objects.equals(gameIntro1, "1") && !Objects.equals(gameIntro1, "0")){
+//                throw new InputMismatchException("");
                 promptSinglePlayerGameInstructions();
             }
-            if (gameIntro1 == 1){
+
+            if (Objects.equals(gameIntro1, "1")){
                 promptSinglePlayerGameInstructions();
             }
-            if (gameIntro1 == 0){
+            if (Objects.equals(gameIntro1, "0")){
                 playTicTacToe2();
             }
-        }if (gameIntro == 1){
+        }   if (Objects.equals(gameIntro, "1")){
                 playTicTacToe2();
         }
     }
@@ -222,47 +238,47 @@ public class TicTacToeMain {
 
     public static void promptSinglePlayerMove() throws InterruptedException {
 
-            int playerPosition = 0;
-            String playerName = TicTacToeSinglePlayerGame.players[TicTacToePlayer.getCurrentPlayer()].getName();
-            if (Objects.equals(playerName, TicTacToeSinglePlayerGame.players[0].getName())) {
-                System.out.printf("""
+        String playerPosition ;
+        String playerName = TicTacToeSinglePlayerGame.players[TicTacToePlayer.getCurrentPlayer()].getName();
+        if (Objects.equals(playerName, TicTacToeSinglePlayerGame.players[0].getName())) {
+            System.out.printf("""
                         +----------------------------------------------------------+
                         | %s, pick a position to place a symbol on the board
                         +----------------------------------------------------------+
                          """, playerName);
-                playerPosition = scanner.nextInt();
-                if (playerPosition < 1 || playerPosition > 9) {
-                    throw new IllegalArgumentException("number out of bound...");
-                } else {
-                    TicTacToeSinglePlayerGame.setPlayerPosition(playerPosition);
-                    playerName = TicTacToeSinglePlayerGame.players[1].getName();
-                    if (TicTacToeSinglePlayerGame.isWon()){
-                        return;
-                    }
-                    System.out.println("+---------------------------------------------------------+");
-                    System.out.print(playerName + " is playing");
-                    for (int k = 0; k < 3; k++) {
-                        System.out.print("..");
-                        TimeUnit.SECONDS.sleep(1);
-                    }
-                    System.out.println("\n+---------------------------------------------------------+");
+            playerPosition = scanner.next();
+            String playerPositions = String.valueOf(playerPosition);
+
+            if (Integer.parseInt(playerPositions) < 1 || Integer.parseInt(playerPositions) > 9) {
+                throw new IllegalArgumentException("number out of bound...");
+            } else {
+                TicTacToeSinglePlayerGame.setPlayerPosition(Integer.parseInt(playerPositions));
+                playerName = TicTacToeSinglePlayerGame.players[1].getName();
+                if (TicTacToeSinglePlayerGame.isWon()){
+                    return;
                 }
-            }
-
-
-            else if (Objects.equals(playerName, TicTacToeSinglePlayerGame.players[1].getName())) {
-                try {
-                SecureRandom secureRandom = new SecureRandom();
-                    playerPosition = (1 + secureRandom.nextInt(9));
-                    TicTacToeSinglePlayerGame.setPlayerPosition(playerPosition);
-
-                }catch (IllegalArgumentException error){
-                    System.out.println(error.getMessage());
-
+                System.out.println("+---------------------------------------------------------+");
+                System.out.print(playerName + " is playing");
+                for (int k = 0; k < 3; k++) {
+                    System.out.print("..");
+                    TimeUnit.SECONDS.sleep(1);
                 }
+                System.out.println("\n+---------------------------------------------------------+");
             }
         }
 
+
+        else if (Objects.equals(playerName, TicTacToeSinglePlayerGame.players[1].getName())) {
+            try {
+                SecureRandom secureRandom = new SecureRandom();
+                playerPosition = String.valueOf((1 + secureRandom.nextInt(9)));
+                TicTacToeSinglePlayerGame.setPlayerPosition(Integer.parseInt(playerPosition));
+
+            }catch (IllegalArgumentException error){
+                System.out.println(error.getMessage());
+            }
+        }
+    }
     public static void exitGame(){
         System.exit(0);
     }

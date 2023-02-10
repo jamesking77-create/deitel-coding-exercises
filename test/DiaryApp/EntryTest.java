@@ -16,7 +16,7 @@ public class EntryTest {
     }
 
     @Test
-    public void testThatTitleCorrespond(){
+    public void testThatTitleUpdates(){
         myEntry.setTitle("home alone");
         assertEquals("home alone", myEntry.getTitle());
     }

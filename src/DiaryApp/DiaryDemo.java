@@ -3,18 +3,13 @@ package DiaryApp;
 import javax.swing.*;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
-import java.util.List;
 import java.io.*;
 
 
 public class DiaryDemo {
-    private static final Diary diary  = new Diary("james","king");
+    private static final Diary diary  = new Diary();
     private static final DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("dd/ MM /yy - hh:mm a");
     private static final LocalDateTime now = LocalDateTime.now();
-    private static final List<DiaryUser> diaryUsers = new ArrayList<>();
-
-
     public static void main(String[] args) throws IOException, InterruptedException, ClassNotFoundException {
 
         startDiary();
@@ -48,34 +43,32 @@ public class DiaryDemo {
         }
     }
 
-    public  static void createNewDiaryUser(String name, String password, Diary diary){
-        DiaryUser diaryUser = new DiaryUser(name, password, diary);
-        diaryUsers.add(diaryUser);
-    }
-
 
     public static void startDiary() throws InterruptedException, IOException, ClassNotFoundException {
-//        diary = null;
-        display("...WELCOME TO KING DIARY...");
-        goToMainMenu();
 
+        display("...WELCOME TO KING DIARY...");
+        String password = "0707";
+        String unlockDiary = input("Enter your password");
+        while (!unlockDiary.equals(password)){
+            unlockDiary = input("Enter your password");
+        }
+        goToMainMenu();
+        //
 //        FileInputStream fileIn  = new FileInputStream("C:\\Users\\USER\\IdeaProjects\\javaProject1\\userInfo.ser");
 //        ObjectInputStream in = new ObjectInputStream(fileIn);
 //        diary = (Diary) in.readObject();
 //        in.close();
 //        fileIn.close();
-//        String userName = input("Please enter your name");
-//        String userPassword = input("Create a password");
-//        createNewDiaryUser(userName,userPassword,diary1);
     }
 
 
     private static void exitDiary() throws IOException {
-        FileOutputStream fileOut = new FileOutputStream("userInfo.ser");
-        ObjectOutputStream out = new ObjectOutputStream(fileOut);
-        out.writeObject(diary);
-        out.close();
-        fileOut.close();
+
+//        FileOutputStream fileOut = new FileOutputStream("userInfo.ser");
+//        ObjectOutputStream out = new ObjectOutputStream(fileOut);
+//        out.writeObject(diary);
+//        out.close();
+//        fileOut.close();
         display("Diary saved...");
         display("Thank you for using diary.");
     }
@@ -84,7 +77,8 @@ public class DiaryDemo {
         String entryTitle = input("Enter your diary title");
         String entryBody = input("Enter your diary body");
         diary.createEntry(entryTitle,entryBody);
-        display("Entry ( ID: "+ diary.countEntry()+" )"+" created successfully"+"\n"+dateTimeFormatter.format(now));
+        display("Entry ( ID: "+ diary.countEntry()+" )"+"" +
+                " created successfully"+"\n"+dateTimeFormatter.format(now));
         goToMainMenu();
 
     }
@@ -105,9 +99,9 @@ public class DiaryDemo {
         goToMainMenu();
     }
 
-    private static void editEntry() throws InterruptedException, IOException {
-        String titleUpdate ="";
-        String bodyUpdate = "";
+    private static void editEntry() throws InterruptedException, IOException , NumberFormatException {
+        String titleUpdate;
+        String bodyUpdate;
         int entryID = Integer.parseInt(input("Enter your diary ID"));
         try {
             display(diary.viewEntry(entryID));
@@ -121,23 +115,21 @@ public class DiaryDemo {
               case '1' -> {
                   display(diary.viewEntry(entryID));
                    titleUpdate =  input("Edit Entry Title");
-                  diary.editEntry(entryID,titleUpdate,bodyUpdate);
+                  diary.editEntryTitle(entryID,titleUpdate);
                   display(diary.viewEntry(entryID));
                   display("Title updated \n"+ dateTimeFormatter.format(now));
               }
               case '2' -> {
                   display(diary.viewEntry(entryID));
                   bodyUpdate = input("Edit Entry Body");
-                  diary.editEntry(entryID,titleUpdate,bodyUpdate);
+                  diary.editEntryBody(entryID,bodyUpdate);
                   display(diary.viewEntry(entryID));
                   display("Body updated \n"+ dateTimeFormatter.format(now));
               }
           }
-//            display("Entry updated \n"+ dateTimeFormatter.format(now));
         }catch (IllegalArgumentException error){
             display(error.getMessage());
         }
-
         goToMainMenu();
     }
 
