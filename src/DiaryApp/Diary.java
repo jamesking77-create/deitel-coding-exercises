@@ -1,9 +1,27 @@
 package DiaryApp;
+import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Diary {
+public class Diary implements Serializable {
+    private static final long serialVersionUID = -6929421958750934596L;
+
+    public List<Entry> getEntries() {
+        return entries;
+    }
+
+    public void setEntries(List<Entry> entries) {
+        this.entries = entries;
+    }
+
+    @Override
+    public String toString() {
+        return "Diary{" +
+                "entries=" + entries +
+                '}';
+    }
+
     public  List<Entry> entries = new ArrayList<>();
 
     public void createEntry(String title, String body) {

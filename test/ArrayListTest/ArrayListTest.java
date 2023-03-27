@@ -73,14 +73,14 @@ public class ArrayListTest {
         assertEquals(2, myArrayList.size());
     }
 
-//    @Test
-//    public void insertElementInArrayList() {
-//        myArrayList.add(34, 0);
-//        myArrayList.add(94, 0);
-//        assertEquals(94, myArrayList.get(0));
-//        assertEquals(34, myArrayList.get(1));
-//        assertEquals(2, myArrayList.size());
-//    }
+    @Test
+    public void insertElementInArrayList() {
+        myArrayList.add(34, 0);
+        myArrayList.add(94, 0);
+        assertEquals(94, myArrayList.get(0));
+        assertEquals(34, myArrayList.get(1));
+        assertEquals(2, myArrayList.size());
+    }
     }
 //
 //    @Test

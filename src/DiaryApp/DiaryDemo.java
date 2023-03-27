@@ -22,8 +22,7 @@ public class DiaryDemo {
                 +=============================+
                     WELCOME TO KINGS DIARY
                 +=============================+
-                1 =>  CREATE ENTRY
-                2 =>  VIEW ENTRY
+                1 =>  CREATE ENTRY                2 =>  VIEW ENTRY
                 3 =>  COUNT ENTRY
                 4 =>  EDIT ENTRY
                 5 =>  DELETE ENTRY
@@ -53,22 +52,23 @@ public class DiaryDemo {
             unlockDiary = input("Enter your password");
         }
         goToMainMenu();
-        //
-//        FileInputStream fileIn  = new FileInputStream("C:\\Users\\USER\\IdeaProjects\\javaProject1\\userInfo.ser");
-//        ObjectInputStream in = new ObjectInputStream(fileIn);
-//        diary = (Diary) in.readObject();
-//        in.close();
-//        fileIn.close();
+        try( var fileOutputStream = new FileOutputStream("diary1"); ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream)){
+            Diary diary1 = new Diary();
+            objectOutputStream.writeObject(diary1);
+        }catch (IOException | SecurityException exception){
+            exception.printStackTrace();
+        }
     }
 
 
     private static void exitDiary() throws IOException {
 
-//        FileOutputStream fileOut = new FileOutputStream("userInfo.ser");
-//        ObjectOutputStream out = new ObjectOutputStream(fileOut);
-//        out.writeObject(diary);
-//        out.close();
-//        fileOut.close();
+        try(ObjectInputStream objectInputStream = new ObjectInputStream(new FileInputStream("C:\\Users\\USER\\IdeaProjects\\javaProject1\\diary1"))) {
+            var diary1 = (Diary) objectInputStream.readObject();
+            System.out.println(diary1);
+        }catch (IOException|SecurityException|ClassNotFoundException exception){
+            exception.printStackTrace();
+        }
         display("Diary saved...");
         display("Thank you for using diary.");
     }

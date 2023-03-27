@@ -4,11 +4,21 @@ import java.io.Serializable;
 import java.time.LocalDateTime;
 
 
-public class Entry implements Serializable {
+public class Entry implements Serializable  {
     private String title;
     private String  body;
     private LocalDateTime dateTime;
     private int ID;
+
+    @Override
+    public String toString() {
+        return "Entry{" +
+                "title='" + title + '\'' +
+                ", body='" + body + '\'' +
+                ", dateTime=" + dateTime +
+                ", ID=" + ID +
+                '}';
+    }
 
     public Entry(LocalDateTime now, String title, String body) {
         this.title = title;

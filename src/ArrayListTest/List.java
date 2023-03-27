@@ -12,4 +12,5 @@ public interface List {
     int size();
 
 
+    int get(int count);
 }

@@ -107,7 +107,6 @@ public class SevenSegment {
                     System.out.print(" # ");
                 }else {
                     System.out.print("   ");
-
                 }
             }
             System.out.println();

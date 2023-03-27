@@ -128,15 +128,6 @@ public class TicTacToeMain {
                      """, playerName);
         String playerPositions = scanner.next();
 
-//        String [] alphabet = {"a","b","c","d","e","f","g","m","h","i","j","k","l","m","n","o","p","q","r","s","t",
-//                "u","v","w","x","y","z","A","B","C","D","E","F","G","H","I","J","K","L","M","N","O",
-//                "P","Q","R","S","T","U","V","W","X","Y","Z"};
-//        for (String letter: alphabet) {
-//            if (playerPositions.equals(letter)){
-//                throw new IllegalArgumentException("wrong input...");
-//            }
-//            TicTacToeGame.setPlayerPosition(Integer.parseInt(playerPositions));
-//        }
         int playerPosition = Integer.parseInt(playerPositions);
 
         if (playerPosition < 1 || playerPosition > 9) {
@@ -164,7 +155,6 @@ public class TicTacToeMain {
         System.out.println();
         promptSinglePlayerGameInstructions();
     }
-
 
     public static void promptSinglePlayerGameInstructions() throws InterruptedException {
         System.out.println("""

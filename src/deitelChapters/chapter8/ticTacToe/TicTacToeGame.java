@@ -57,22 +57,7 @@ public class TicTacToeGame {
 
 
 
-    private static void checkTie() {
-        if (!isWon) {
-            int count = 0;
-            for (String[] row : gameBoard) {
-                for (String square : row) {
-                    if (!square.equals(EMPTY.getSymbol())) {
-                        count++;
-                    }
-                }
-            }
-            if (count == 9) {
-                isWon = true;
-                printTieMessage();
-            }
-        }
-    }
+
 
     private static void printTieMessage() {
         System.out.println("        Oops! It's a tie. Game Over!");
@@ -185,9 +170,7 @@ public class TicTacToeGame {
             }
         }
 
-        public void itATie(){
 
-        }
         public static boolean isWon(){
         return isWon;
 
@@ -195,6 +178,21 @@ public class TicTacToeGame {
         public static void  resetPlayCount(){
         playCount = 0;
         }
+
+    private static void checkTie() {
+        if (!isWon) {
+            int count = 0;
+            for (String[] row : gameBoard) {
+                for (String square : row) {
+                    if (!square.equals(EMPTY.getSymbol())) {
+                        count++;
+                    }
+                }
+            }
+            if (count == 9) {
+                isWon = true;
+                printTieMessage();
+            }
+        }
     }
-
-
+}

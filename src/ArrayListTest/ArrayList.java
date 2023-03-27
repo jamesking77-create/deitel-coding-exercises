@@ -1,15 +1,12 @@
 package ArrayListTest;
 
 public class ArrayList implements List {
-    int count = 0;
+    int count;
     int [] elements = new int[count];
 
     @Override
     public  boolean isEmpty() {
-        if (count  == 0) {
-            return true;
-        }
-        return false;
+        return count == 0;
     }
 
     @Override
@@ -27,6 +24,11 @@ public class ArrayList implements List {
 
     @Override
     public int size() {
+        return count;
+    }
+
+    @Override
+    public int get(int count) {
         return count;
     }
 
