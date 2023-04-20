@@ -57,7 +57,7 @@ public class Archers {
         displayWinner();
     }
     private static void displayWinner(){
-        int highestScore = 0;
+        int highestScore =  0;
         int winnerIndex = 0;
         for (int i = 0; i < players.length; i++) {
             if (players[i].getTotalShot() > highestScore){
