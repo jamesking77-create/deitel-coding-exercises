@@ -1,4 +1,4 @@
-package chapterSixteen;
+package deitelChapters.chapterSixteen;
 
 import java.util.ArrayList;
 import java.util.Arrays;

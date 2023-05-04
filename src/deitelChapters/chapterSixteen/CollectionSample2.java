@@ -1,4 +1,4 @@
-package chapterSixteen;
+package deitelChapters.chapterSixteen;
 
 import java.util.Set;
 import java.util.TreeSet;
