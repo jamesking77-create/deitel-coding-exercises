@@ -5,8 +5,8 @@ import java.util.concurrent.TimeUnit;
 
 public class Archery {
     public static void main(String[] args) throws InterruptedException {
-//        int[][] archery = new int[3][4];
-//        Archers.archersRound(archery);
+        int[][] archery = new int[3][4];
+        Archers.archersRound(archery);
 
 
         Archers.registerPlayer();

@@ -8,7 +8,7 @@ public class StudentPoll {
             try {
                 ++frequency[responses[answer]];
             } catch (ArrayIndexOutOfBoundsException error) {
-                System.err.println(error); // invokes toString method
+                System.out.println(error.getMessage());// invokes toString method
                 System.out.printf(" responses[%d] = %d%n%n", answer, responses[answer]);
             }
         }
